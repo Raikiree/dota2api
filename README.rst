@@ -67,6 +67,7 @@ Supported API calls
 - get_league_listing
 - get_live_league_games
 - get_team_info_by_team_id
+- get_team_info
 - get_heroes
 - get_tournament_prize_pool
 - get_game_items
