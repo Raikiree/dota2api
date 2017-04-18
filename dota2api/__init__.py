@@ -161,6 +161,20 @@ class Initialise(object):
         if not self.__check_http_err(req.status_code):
             return response.build(req, url, self.raw_mode)
 
+    def get_team_info(self, team_id=None, **kwargs):
+        """Returns a team's info
+
+        :param team_id: team's id
+        """
+        if 'team_id' not in kwargs:
+            kwargs['team_id'] = team_id
+        url = self.__build_url(urls.GET_TEAM_INFO, **kwargs)
+        req = self.executor(url)
+        if self.logger:
+            self.logger.info('URL: {0}'.format(url))
+        if not self.__check_http_err(req.status_code):
+            return response.build(req, url)
+
     def get_player_summaries(self, steamids=None, **kwargs):
         """Returns a dictionary containing a player summaries
 
